@@ -16,9 +16,13 @@ class ProductTable extends Component {
       const productMap = new Map();
 
       products.forEach((product) => {
-
+          if(productMap.get(product.category)){
+            productMap.get(product.category).products.push(<ProductRow details={product}/>)
+          }else{
+            productMap.set(product.category,{productCategory:(<ProductCategory category={product.category}></ProductCategory>),products:[<ProductRow details={product}/>]})
+          }
       })
-
+      console.log(`map:`,productMap)
 
         return (
           <div>
@@ -30,10 +34,7 @@ class ProductTable extends Component {
                     </tr>
                 </thead>
                 <tbody>
-                    <ProductCategory></ProductCategory>
-                    <ProductRow></ProductRow>
-                    <ProductCategory></ProductCategory>
-                    <ProductRow></ProductRow>
+                    {productMap.entries()}
                 </tbody>
             </table>
           </div>
