@@ -11,9 +11,13 @@ class FilterableProductTable extends Component {
         search: false
     }
 
-    updateInStockItems = (event) => {
-        
-        this.setState(Object.assign(this.state,{onlyInStockItems: true}))
+    updateInStockItems = () => {
+        //check what value is and set to opposite
+        if(this.state.onlyInStockItems === true){
+            this.setState(Object.assign(this.state,{onlyInStockItems: false}))
+        }else{
+            this.setState(Object.assign(this.state,{onlyInStockItems: true}))
+        }   
     }
 
     render() {
@@ -24,7 +28,6 @@ class FilterableProductTable extends Component {
                 return val.stocked
             });
         }
-        console.log(products);
 
         return (
           <div className="App">

@@ -11,7 +11,6 @@ class ProductTable extends Component {
   render() {
 
       const products = this.props.products;
-      console.log("products", products);
 
       const productMap = new Map();
 
@@ -22,7 +21,6 @@ class ProductTable extends Component {
             productMap.set(product.category,{productCategory:(<ProductCategory category={product.category}></ProductCategory>),products:[<ProductRow details={product}/>]})
           }
       })
-      console.log(`map:`,productMap)
       const productIterator = productMap.values();
 
       let data =[];
@@ -31,7 +29,6 @@ class ProductTable extends Component {
           data.push(product.productCategory);
           data = data.concat(product.products);
       })
-      console.log(data);
         return (
           <div>
             <table>

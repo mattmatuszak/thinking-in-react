@@ -4,7 +4,6 @@ import React, { Component } from 'react';
 
 class ProductRow extends Component {
   render() {
-  	console.log(this.props);
 
   	const style = {
   		color: (this.props.details.stocked === false) ? 'red' : 'black'
