@@ -9,7 +9,7 @@ class SearchBar extends Component {
   render() {
     return (
       <div>
-        <input /><br />
+        <input onChange={this.props.updateSearch} /><br />
         <input type="checkbox" onChange={this.props.updateInStockItems}/><label>Only show products in stock</label>
       </div>
     );
