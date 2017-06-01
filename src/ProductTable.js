@@ -23,7 +23,15 @@ class ProductTable extends Component {
           }
       })
       console.log(`map:`,productMap)
+      const productIterator = productMap.values();
 
+      let data =[];
+
+      productMap.forEach((product) => {
+          data.push(product.productCategory);
+          data = data.concat(product.products);
+      })
+      console.log(data);
         return (
           <div>
             <table>
@@ -34,7 +42,7 @@ class ProductTable extends Component {
                     </tr>
                 </thead>
                 <tbody>
-                    {productMap.entries()}
+                    {data}
                 </tbody>
             </table>
           </div>

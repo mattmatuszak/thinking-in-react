@@ -4,11 +4,16 @@ import React, { Component } from 'react';
 
 class ProductRow extends Component {
   render() {
+  	console.log(this.props);
+
+  	const style = {
+  		color: (this.props.details.stocked === false) ? 'red' : 'black'
+  	};
 
     return (
       <tr>
-        <td>{this.props.product.name}</td>
-        <td>{this.props.product.price}</td>
+         <td style={style}>{this.props.details.name}</td>
+         <td>{this.props.details.price}</td>
       </tr>
       
     );
